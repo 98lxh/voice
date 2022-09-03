@@ -13,7 +13,7 @@ const openGithub = () => window.open("http://www.github.com");
 </script>
 
 <template>
-  <footer h-50px w-full flex justify-between>
+  <footer h-50px fixed bottom-0 w-full flex justify-between>
     <div
       ref="github"
       cursor-icon

@@ -13,7 +13,7 @@ const toHome = () => push("/");
 </script>
 
 <template>
-  <nav h="80px" w-full flex items-center justify-between text-white>
+  <nav h="80px" fixed w-full flex items-center justify-between text-white>
     <div
       cursor-icon
       w="60px"
@@ -27,7 +27,8 @@ const toHome = () => push("/");
 
     <div text-sm flex gap="5" select-none v-bind="helper.point">
       <span @click="toHome">Home</span>
-      <span>Profile</span>
+      <span text="#838385">Profile</span>
+      <span text="#838385">Settings</span>
     </div>
 
     <div px-3 select-none>Avatar</div>
