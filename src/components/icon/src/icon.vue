@@ -2,10 +2,10 @@
 import { computed } from "vue";
 
 export interface Props {
-  prefix: string;
+  prefix?: string;
   name: string;
-  color: string;
-  size: string;
+  color?: string;
+  size?: string;
 }
 
 const props = withDefaults(defineProps<Props>(), {

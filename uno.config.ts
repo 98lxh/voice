@@ -19,7 +19,8 @@ export default defineConfig({
     "flex-c": "flex justify-center items-center",
     "flex-ac": "flex justify-around items-center",
     "flex-bc": "flex justify-between items-center",
-    "navbar-bg-hover": "dark:color-white !dark:hover:bg-[#242424]"
+    "navbar-bg-hover": "dark:color-white !dark:hover:bg-[#242424]",
+    "cursor-icon": "w-50px h-50px  flex items-center justify-center"
   },
   theme: {
     colors: {

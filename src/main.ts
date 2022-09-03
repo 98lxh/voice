@@ -4,17 +4,15 @@ import { setupStore } from "./store";
 import { setupRouter } from "./router";
 
 import "virtual:svg-icons-register";
+import "@unocss/reset/normalize.css";
+import "@unocss/reset/tailwind.css";
 import "./styles/index.scss";
 import "uno.css";
 
 async function bootstarp() {
   const app = createApp(App);
-
-  //状态管理
   setupStore(app);
-  //路由
   setupRouter(app);
-
   app.mount("#app");
 }
 

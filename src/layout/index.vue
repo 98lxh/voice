@@ -1,9 +1,13 @@
 <script setup lang="ts">
-import Icon from "@/components/icon";
+import Footer from "./components/footer";
+import Main from "./components/main";
+import Nav from "./components/nav";
 </script>
 
 <template>
   <div w-full h-100vh>
-    <Icon name="logo" size="40px" color="#000" />
+    <Nav />
+    <Main />
+    <Footer />
   </div>
 </template>

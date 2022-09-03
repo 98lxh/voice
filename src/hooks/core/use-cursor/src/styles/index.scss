@@ -47,6 +47,9 @@ $text:#000;
   //arrow
 
   &.mode-arrow {
+    width: 30px;
+    height: 30px;
+
     &.cursor-click {
       width: 15px;
       height: 15px;
@@ -56,6 +59,11 @@ $text:#000;
 
   &.mode-element {
     background-color: $color;
+
+
+    use{
+      fill:$text !important;
+    }
   }
 }
 

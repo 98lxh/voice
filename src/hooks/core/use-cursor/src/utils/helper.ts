@@ -1,56 +1,72 @@
 import { nextTick, Ref } from "vue";
 import { CursorElements, CursorMode, SetModeFn } from "./../types";
 
+type ElementHandlerParams = {
+  container: HTMLElement | null;
+  cursorElements: Ref<CursorElements | null>;
+  isLeave: boolean;
+};
+
 export function generatorModeName(mode?: CursorMode) {
   return mode ? `mode-${mode}` : "";
 }
 
 export function generatorHelper(
-  setMode: SetModeFn,
+  setCursor: SetModeFn,
   cursorElements: Ref<CursorElements | null>
 ) {
   const point = {
-    onMouseenter: () => setMode("point"),
-    onMouseleave: () => setMode("normal")
+    onMouseenter: () => setCursor("point"),
+    onMouseleave: () => setCursor("normal")
   };
 
   const arrow = {
-    onMouseenter: () => setMode("arrow"),
-    onMouseleave: () => setMode("normal")
+    onMouseenter: () => setCursor("arrow"),
+    onMouseleave: () => setCursor("normal")
   };
 
-  const element = (element: HTMLElement | null) => {
+  const element = (container: HTMLElement | null) => {
+    const enterHandler = elementHelperHandler.bind(null, {
+      container,
+      cursorElements,
+      isLeave: false
+    });
+
+    const leaveHandler = elementHelperHandler.bind(null, {
+      container,
+      cursorElements,
+      isLeave: true
+    });
+
     return {
       onMouseenter: () => {
-        const { point, circle } = cursorElements.value!;
-        if (!element) return console.log("请传入一个合法的html元素");
-        const move = element.firstChild! as HTMLElement;
-
-        if (move) {
+        enterHandler((move, icon) => {
+          setCursor("element");
+          const { point, circle } = cursorElements.value!;
           const { width } = move.getBoundingClientRect();
-          setMode("element");
+          if (icon) (move.firstChild as any).style.fill = "#000";
+
           point.appendChild(move);
 
           nextTick(() => {
             circle.style.width = width + 20 + "px";
             circle.style.height = width + 20 + "px";
           });
-        }
+        });
       },
       onMouseleave: () => {
-        console.log(1111);
-        const { point, circle } = cursorElements.value!;
-        if (!element) return console.log("请传入一个合法的html元素");
-        const move = point.lastChild!;
-        if (move) {
-          circle.removeAttribute("style");
+        leaveHandler((move, icon) => {
+          const { circle } = cursorElements.value!;
 
+          circle.removeAttribute("style");
           circle.style.left = "-10000px";
           circle.style.top = "-10000px";
+          container!.appendChild(move);
 
-          element.appendChild(move);
-          nextTick(() => setMode("normal"));
-        }
+          if (icon) (move.firstChild as any).style.fill = "#fff";
+
+          nextTick(() => setCursor("normal"));
+        });
       }
     };
   };
@@ -60,4 +76,19 @@ export function generatorHelper(
     arrow,
     element
   };
+}
+
+function elementHelperHandler(
+  { container, isLeave, cursorElements }: ElementHandlerParams,
+  handler: (move: HTMLElement, icon: boolean) => void
+) {
+  if (!container) return;
+  const { point } = cursorElements.value!;
+
+  const move = isLeave
+    ? (point.lastChild! as HTMLElement)
+    : (container.firstChild! as HTMLElement);
+
+  const icon = !!move && move.tagName === "svg";
+  move && handler(move, icon);
 }
