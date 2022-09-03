@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import { useAppStore } from "@/store/modules/app";
-const { cursor } = useAppStore();
-
-const { helper } = cursor!;
+import Icon from "@/components/icon";
 </script>
 
 <template>
-  <div w-full h-100vh />
+  <div w-full h-100vh>
+    <Icon name="logo" size="40px" color="#000" />
+  </div>
 </template>
