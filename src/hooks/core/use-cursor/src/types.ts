@@ -1,3 +1,5 @@
+import { useCursor } from ".";
+
 export type CursorElements = {
   circle: HTMLElement;
   point: HTMLElement;
@@ -11,3 +13,5 @@ export type Config = Partial<{
   mode: CursorMode;
   line: boolean;
 }>;
+
+export type Cursor = ReturnType<typeof useCursor>;

@@ -32,8 +32,8 @@ export function generatorHelper(
           point.appendChild(move);
 
           nextTick(() => {
-            circle.style.width = width + 10 + "px";
-            circle.style.height = width + 10 + "px";
+            circle.style.width = width + 20 + "px";
+            circle.style.height = width + 20 + "px";
           });
         }
       },

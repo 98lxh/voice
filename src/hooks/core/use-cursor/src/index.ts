@@ -15,7 +15,7 @@ export function useCursor(config: Config = defaultConfig) {
   const container = ref<HTMLElement | null>(null);
   const cursorElements = ref<CursorElements | null>(null);
 
-  function setMode(mode: CursorMode) {
+  function setCursor(mode: CursorMode) {
     const { circle, point } = cursorElements.value!;
     [circle, point].forEach(el => {
       removeOtherMode(el);
@@ -33,8 +33,7 @@ export function useCursor(config: Config = defaultConfig) {
   });
 
   return {
-    helper: generatorHelper(setMode, cursorElements),
-    container,
-    setMode
+    helper: generatorHelper(setCursor, cursorElements),
+    setCursor
   };
 }

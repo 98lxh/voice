@@ -1,1 +1,2 @@
-export { useCursor } from "./src/use-cursor";
+export { useCursor } from "./src";
+export * from "./src/types";

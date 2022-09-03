@@ -1,23 +1,18 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { useAppStore } from "@/store/modules/app";
 import { useCursor } from "./hooks/core/use-cursor";
+import { RouterView } from "vue-router";
 
-const { helper } = useCursor({
-  mode: "normal",
-  line: true
-});
+const { setCursor } = useAppStore();
 
-const elRef = ref<HTMLElement | null>(null);
+setCursor(
+  useCursor({
+    mode: "normal",
+    line: true
+  })
+);
 </script>
 
 <template>
-  <div
-    ref="elRef"
-    style="width: 40px; height: 40px; border: 1px solid red"
-    v-bind="helper.element(elRef)"
-  >
-    <span>el</span>
-  </div>
+  <RouterView />
 </template>
-
-<style></style>

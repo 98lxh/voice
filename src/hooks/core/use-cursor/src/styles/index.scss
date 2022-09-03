@@ -1,4 +1,6 @@
-$color:rgb(98,44,255);
+// $color:rgb(98,44,255);
+$color:#fff;
+$text:#000;
 
 .cursor-circle {
   width: 25px;
@@ -18,6 +20,7 @@ $color:rgb(98,44,255);
     &.cursor-click {
       width: 15px;
       height: 15px;
+      background-color: $color;
     }
 
     &.cursor-hidden {
@@ -152,7 +155,8 @@ $color:rgb(98,44,255);
     width: auto;
     height: auto;
     background-color: transparent;
-    color: #fff;
+    color: $text;
+    font-weight: bold;
 
    &.cursor-click {
     transform: translate(-50%, -50%) scale(0.6) !important;
@@ -178,7 +182,7 @@ $color:rgb(98,44,255);
       top: 0px;
       left: 0px;
       border: none !important;
-      transition: width .3s ease;
+      transition: width 0.5s ease-in-out;
       transform: translateY(50%) !important;
     }
   
@@ -194,7 +198,7 @@ $color:rgb(98,44,255);
       height: 0px;
       border: none !important;
       transform: translateX(50%) !important;
-      transition: height .3s ease;
+      transition: height 0.5s ease-in-out;
     }
   
     &.cursor-line{
@@ -205,7 +209,7 @@ $color:rgb(98,44,255);
           content: "";
           width: 100vw;
           height: 1px;
-          opacity: 1;
+          opacity: 0.2;
           background-color: $color;
           top: 0px;
           left: 0px;
@@ -216,7 +220,7 @@ $color:rgb(98,44,255);
           display: block;
           content: "";
           background-color: $color;
-          opacity: 1;
+          opacity: 0.2;
           top: 0px;
           left: 0px;
           width: 1px;

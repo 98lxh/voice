@@ -1,12 +1,21 @@
 import { createApp } from "vue";
 import App from "./App.vue";
-import "virtual:windi.css";
+import { setupStore } from "./store";
 
-import UselessUi from "useless-ui";
-import "useless-ui/dist/theme-chalk/index.css";
-import { createPinia } from "pinia";
+import "./styles/index.scss";
+import "uno.css";
+import { setupRouter } from "./router";
 
-const app = createApp(App);
-app.use(createPinia());
-app.use(UselessUi);
-app.mount("#app");
+async function bootstarp() {
+  const app = createApp(App);
+
+  //状态管理
+  setupStore(app);
+  
+  //路由
+  setupRouter(app)
+
+  app.mount("#app");
+}
+
+void bootstarp();
