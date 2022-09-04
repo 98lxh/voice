@@ -3,7 +3,7 @@ import { RouterView } from "vue-router";
 </script>
 
 <template>
-  <main class="h-[calc(100vh-160px)] reactive">
+  <main reactive>
     <RouterView />
   </main>
 </template>

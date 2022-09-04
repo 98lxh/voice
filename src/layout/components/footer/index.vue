@@ -2,6 +2,7 @@
 import { ref } from "vue";
 import Icon from "@/components/icon";
 import { useAppStore } from "@/store/modules/app";
+import { FOOTER_HEIGHT } from "@/config/layout";
 
 const { cursor } = useAppStore();
 const { helper } = cursor!;
@@ -13,7 +14,7 @@ const openGithub = () => window.open("http://www.github.com");
 </script>
 
 <template>
-  <footer h-50px fixed bottom-0 w-full flex justify-between>
+  <footer :h="FOOTER_HEIGHT + 'px'" fixed bottom-0 w-full flex justify-between>
     <div
       ref="github"
       cursor-icon

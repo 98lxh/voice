@@ -1,35 +1,41 @@
 <script setup lang="ts">
+import { computed } from "vue";
 import { useMouseSroll } from "@/hooks";
 import { useAppStore } from "@/store/modules/app";
+import { useColumnSize } from "./hooks/column-size";
 import Column from "./components/column.vue";
+import Action from "./components/action.vue";
 
-const { cursor } = useAppStore();
+const { cursor, viewport } = useAppStore();
+const { size } = useColumnSize();
+const { target } = useMouseSroll({
+  frame: 60
+});
+
 const { helper } = cursor!;
 
-const { target } = useMouseSroll({
-  frame: 30
-});
+const styles = computed(() => ({
+  ...(viewport ? { height: viewport.height + "px" } : {})
+}));
 </script>
 
 <template>
-  <div
-    ref="target"
-    flex
-    w-full
-    reactive
-    h="100vh"
-    overflow-y-hidden
-    duration="200ms"
-    v-bind="helper.arrow"
-  >
+  <div class="home__content" ref="target" :style="styles" v-bind="helper.arrow">
+    <Action />
     <template v-for="i in 20" :key="i">
-      <Column :id="i" />
+      <Column :size="size" :id="i" />
     </template>
   </div>
 </template>
 
 <style lang="scss" scoped>
-div {
+.home__content {
+  display: flex;
+  width: 100%;
+  position: relative;
+  overflow-y: hidden;
+  top: 0px;
+
   &::-webkit-scrollbar {
     display: none;
   }

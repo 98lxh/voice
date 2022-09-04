@@ -1,5 +1,6 @@
+import { ref, watch } from "vue";
 import { useAppStore } from "@/store/modules/app";
-import { onMounted, ref, watch } from "vue";
+import { tryOnMounted, tryOnUnmounted } from "@vueuse/core";
 
 interface MouceScrollConfig {
   frame: number;
@@ -9,6 +10,9 @@ const defaultOptions: MouceScrollConfig = {
   frame: 20
 };
 
+/**
+ * TODO:检查越界
+ */
 export function useMouseSroll({ frame } = defaultOptions) {
   const target = ref<HTMLElement | null>(null);
   const { viewport } = useAppStore();
@@ -30,10 +34,8 @@ export function useMouseSroll({ frame } = defaultOptions) {
     const current = target!.scrollLeft;
 
     raf = requestAnimationFrame(() => {
-      const left = mode === "up" ? current - step : current + step;
-
       animationTimes++;
-
+      const left = mode === "up" ? current - step : current + step;
       scrollTo(target, mode);
       target.scrollTo({
         left
@@ -57,7 +59,9 @@ export function useMouseSroll({ frame } = defaultOptions) {
     }
   );
 
-  onMounted(() => document.addEventListener("mousewheel", handler));
+  tryOnMounted(() => document.addEventListener("mousewheel", handler));
+
+  tryOnUnmounted(() => document.removeEventListener("mousewheel", handler));
 
   return {
     target
