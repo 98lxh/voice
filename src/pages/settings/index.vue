@@ -6,6 +6,6 @@ const style = useContentSize();
 
 <template>
   <div fixed w-full text="#fff" text-xl font-bold :style="style">
-    TODO:PROFILE
+    TODO:SETTINGS
   </div>
 </template>

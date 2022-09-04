@@ -19,7 +19,7 @@ const style = computed(() => ({
     px-5
     :style="style"
   >
-    <p>Create</p>
-    <p>Search</p>
+    <p>TODO:CREATE ROOM</p>
+    <p>TODO:SEARCH ROOM</p>
   </div>
 </template>

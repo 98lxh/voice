@@ -21,5 +21,9 @@ setViewport(
 </script>
 
 <template>
-  <RouterView />
+  <RouterView #="{ Component }">
+    <Transition name="zoom-fade">
+      <component :is="Component" />
+    </Transition>
+  </RouterView>
 </template>

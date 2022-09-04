@@ -3,7 +3,11 @@ import { RouterView } from "vue-router";
 </script>
 
 <template>
-  <main reactive>
-    <RouterView />
+  <main h="100vh">
+    <RouterView #default="{ Component }">
+      <Transition name="zoom-fade" mode="out-in">
+        <component :is="Component" />
+      </Transition>
+    </RouterView>
   </main>
 </template>
