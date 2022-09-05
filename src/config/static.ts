@@ -1,11 +1,11 @@
 export const NAV_LINKS = [
   {
-    key: "Home",
-    path: "/home"
-  },
-  {
     key: "Profile",
     path: "/profile"
+  },
+  {
+    key: "Home",
+    path: "/home"
   },
   {
     key: "Setting",

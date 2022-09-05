@@ -9,7 +9,7 @@ import Action from "./components/action.vue";
 const { cursor, viewport } = useAppStore();
 const { size } = useColumnSize();
 const { target } = useMouseSroll({
-  frame: 5
+  frame: 10
 });
 
 const { helper } = cursor!;

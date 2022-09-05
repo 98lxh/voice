@@ -42,8 +42,8 @@ const style = computed(() => {
         >
           <img
             w-full
-            h-full
-            hover:scale-110
+            :h="size.height - 80 + 'px'"
+            hover:scale-120
             duration="500"
             src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F201911%2F02%2F20191102100245_jxvtd.thumb.1000_0.jpg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1664817933&t=47327c3082c3aca1e4281df78a48b24e"
           />

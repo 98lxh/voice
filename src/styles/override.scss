@@ -1,0 +1,84 @@
+.u-button--primary{
+  background-color: #1a5cff;
+  color: #fff;
+}
+
+.u-button{
+  border-radius: 0px;
+}
+
+
+.u-button--secondary:not(.is-disabled):hover{
+  background-color: #1a5cff;
+  opacity: 0.8 !important;
+}
+
+.u-button--outline {
+  border: 1px solid #1a5cff !important;
+  color: #1a5cff !important;
+}
+
+
+.u-input{
+  color:#f8f5f8;
+  font-size: 14px;
+
+  .u-input__input {
+    width: 100%;
+    background-color:#141417;
+    border: 1px solid transparent !important;
+    border-radius: 0px !important;
+  
+    &:focus-visible{
+      background-color: #0f1013 !important;
+      border: 1px solid #1a5cff !important;
+    }
+  }
+
+  .u-input--prefix{
+    left: 5px;
+    top: 20px;
+  }
+}
+
+.u-modal-root{
+  z-index: 899;
+
+  .u-modal{
+    background-color: #1e2023 !important;
+
+    .u-modal__title{
+      border-bottom: 1px solid #313131;
+    }
+
+    .u-modal__footer{
+      border-top: 1px solid #313131;
+    }
+
+    .u-button{
+      font-size: 12px;
+      height: 28px;
+      padding: 0px 15px;
+    }
+  }
+}
+
+
+.u-modal-mask{
+  background-color: #00000073 !important;
+}
+
+
+.u-form{
+  .u-form-item__label{
+    color:#f8f5f8;
+    font-size: 14px;
+  }
+}
+
+.u-message{
+  background-color: #1e2023 !important;
+  color:#f8f5f8;
+
+  box-shadow: 0 3px 6px -4px #0000001f, 0 6px 16px #00000014, 0 9px 28px 8px #0000000d;
+}

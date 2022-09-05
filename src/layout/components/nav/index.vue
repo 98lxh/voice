@@ -34,7 +34,7 @@ const logo = ref<HTMLElement | null>(null);
       @click="() => push('/home')"
       v-bind="helper.element(logo)"
     >
-      <Icon name="logo" size="30px" />
+      <Icon name="logo" size="25px" />
     </div>
 
     <div
@@ -44,19 +44,19 @@ const logo = ref<HTMLElement | null>(null);
       left="50%"
       top="50%"
       flex
+      gap="5"
       select-none
-      v-bind="helper.point"
     >
-      <span
+      <div
         v-for="link in NAV_LINKS"
         :key="link.path"
         hover:text-white
         duration="500"
-        mr-5
         :text="route.path === link.path ? '#fff' : '#838385'"
         @click="() => push(link.path)"
-        >{{ link.key }}</span
       >
+        <span v-bind="helper.point">{{ link.key }}</span>
+      </div>
     </div>
 
     <div px-3 select-none>Avatar</div>

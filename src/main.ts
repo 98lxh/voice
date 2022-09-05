@@ -1,4 +1,5 @@
 import App from "./App.vue";
+import UselessUi from "useless-ui";
 import { createApp } from "vue";
 import { setupStore } from "./store";
 import { setupRouter } from "./router";
@@ -13,6 +14,7 @@ async function bootstarp() {
   const app = createApp(App);
   setupStore(app);
   setupRouter(app);
+  app.use(UselessUi);
   app.mount("#app");
 }
 

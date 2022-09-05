@@ -39,7 +39,8 @@ export function generatorHelper(
     });
 
     return {
-      onMouseenter: () => {
+      onMouseenter: (event: MouseEvent) => {
+        event.stopPropagation();
         enterHandler((move, icon) => {
           setCursor("element");
           const { point, circle } = cursorElements.value!;
@@ -54,7 +55,8 @@ export function generatorHelper(
           });
         });
       },
-      onMouseleave: () => {
+      onMouseleave: (event: MouseEvent) => {
+        event.stopPropagation();
         leaveHandler((move, icon) => {
           const { circle } = cursorElements.value!;
 
