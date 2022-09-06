@@ -32,8 +32,8 @@ const styles = computed(() => ({
 .home__content {
   display: flex;
   width: 100%;
-  position: relative;
-  overflow-y: hidden;
+  overflow-y: scroll;
+  position: fixed;
   top: 0px;
 
   &::-webkit-scrollbar {

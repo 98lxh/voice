@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { computed, reactive, ref } from "vue";
-import { Button, Input, Modal, Form, Message, Tooltip } from "useless-ui";
 import { useAppStore } from "@/store/modules/app";
 import { ACTION_BAR_HEIGHT } from "@/config/layout";
 import Icon from "@/components/icon";
+
+import { Button, Input, Modal, Form, Message, Tooltip } from "useless-ui";
 
 const visible = ref(false);
 const { cursor } = useAppStore();
@@ -62,23 +63,19 @@ const style = computed(() => ({
       <span text="#fff">create</span>
     </template>
 
-    <Form :model="model" :label-width="100" v-bind="cursor!.helper.point">
+    <Form :model="model" :label-width="80" v-bind="cursor!.helper.point">
       <UseFormItem label="name :">
         <Input
           placeholder="please enter the room name"
-          :error="false"
-          w="350px"
-          max-w="50vw"
           ml="5px"
+          :error="false"
         />
       </UseFormItem>
       <UseFormItem label="description :">
         <Input
           placeholder="please enter the room description"
-          :error="false"
-          w="350px"
-          max-w="50vw"
           ml="5px"
+          :error="false"
         />
       </UseFormItem>
     </Form>

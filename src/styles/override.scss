@@ -46,7 +46,8 @@
 
   .u-modal{
     background-color: #1e2023 !important;
-    box-shadow: 0 3px 6px -4px #0000007a, 0 6px 16px #00000052, 0 9px 28px 8px #0003;
+    border-radius: 0px !important;
+    box-shadow: 0 3px 6px -4px #0000007a, 0 6px 16px #00000052, 0 9px 28px 8px #0003 !important;
 
     .u-modal__title{
       border-bottom: 1px solid #313131;
@@ -71,6 +72,14 @@
 
 
 .u-form{
+  .u-form-item{
+    display: flex;
+
+    .u-form-item__content{
+      flex:1;
+    }
+  }
+
   .u-form-item__label{
     color:#f8f5f8;
     font-size: 14px;
@@ -80,6 +89,11 @@
 .u-message{
   background-color: #1e2023 !important;
   color:#f8f5f8;
+  border-radius: 0px !important;
+  box-shadow: 0 3px 6px -4px #0000001f, 0 6px 16px #00000014, 0 9px 28px 8px #0000000d !important;
+}
 
-  box-shadow: 0 3px 6px -4px #0000001f, 0 6px 16px #00000014, 0 9px 28px 8px #0000000d;
+.u-popover-node{
+  border-radius: 0px !important;
+  box-shadow: 0 3px 6px -4px #0000001f, 0 6px 16px #00000014, 0 9px 28px 8px #0000000d !important;
 }
