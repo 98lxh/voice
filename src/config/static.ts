@@ -1,14 +1,14 @@
 export const NAV_LINKS = [
   {
-    key: "Profile",
+    key: "我的",
     path: "/profile"
   },
   {
-    key: "Home",
+    key: "首页",
     path: "/home"
   },
   {
-    key: "Setting",
+    key: "设置",
     path: "/settings"
   }
 ];

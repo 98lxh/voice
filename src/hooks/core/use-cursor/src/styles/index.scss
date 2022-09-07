@@ -34,15 +34,7 @@ $text:#000;
 
   // mode --- point
   &.mode-point {
-    background-color: #000;
-    width: 15px;
-    height: 15px;
-    opacity: 0.6;
-
-    &.cursor-click {
-      width: 10px;
-      height: 10px;
-    }
+    display: none;
   }
 
   //arrow
@@ -126,7 +118,16 @@ $text:#000;
 
   // mode --- point
   &.mode-point {
-    display: none;
+    background-color: #000;
+    width: 15px;
+    height: 15px;
+    opacity: 0.6;
+    border:1px solid #fff;
+
+    &.cursor-click {
+      width: 10px;
+      height: 10px;
+    }
   }
 
   &.mode-arrow {

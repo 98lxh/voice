@@ -3,8 +3,8 @@ import { computed } from "vue";
 import { useMouseSroll } from "@/hooks";
 import { useAppStore } from "@/store/modules/app";
 import { useColumnSize } from "./hooks/column-size";
-import Column from "./components/column.vue";
-import Action from "./components/action.vue";
+import ActionBar from "./components/action-bar";
+import Columns from "./components/columns";
 
 const { cursor, viewport } = useAppStore();
 const { size } = useColumnSize();
@@ -21,9 +21,9 @@ const styles = computed(() => ({
 
 <template>
   <div class="home__content" ref="target" :style="styles" v-bind="helper.arrow">
-    <Action />
+    <ActionBar />
     <template v-for="i in 20" :key="i">
-      <Column :size="size" :id="i" />
+      <Columns :size="size" :id="i" />
     </template>
   </div>
 </template>
