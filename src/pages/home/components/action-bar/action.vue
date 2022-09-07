@@ -38,7 +38,7 @@ const style = computed(() => ({
       <Button
         type="primary"
         v-bind="cursor!.helper.point"
-        @click="() => createRef?.onDisplay()"
+        @click="() => createRef!.onDisplay()"
         >创建</Button
       >
     </Tooltip>

@@ -67,7 +67,7 @@ defineExpose({
     </Form>
 
     <template #footer>
-      <div w-full flex justify-end gap="5" px="5" v-bind="cursor?.helper.point">
+      <div w-full flex justify-end gap="5" px="5" v-bind="cursor!.helper.point">
         <Button type="outline" @click="() => (visible = false)">取消</Button>
         <Button type="primary" @click="handleConfirm">确定</Button>
       </div>
