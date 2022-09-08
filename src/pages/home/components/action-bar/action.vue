@@ -3,12 +3,13 @@ import { computed, ref } from "vue";
 import { useAppStore } from "@/store/modules/app";
 import { ACTION_BAR_HEIGHT } from "@/config/layout";
 import { Button, Input, Tooltip } from "useless-ui";
-import { type CreateModaInstance } from "./types";
 import Icon from "@/components/icon";
 import Create from "./create.vue";
 
 const { cursor } = useAppStore();
-const createRef = ref<CreateModaInstance | null>(null);
+const createRef = ref<InstanceType<typeof Create> | null>(null);
+
+const onDisplayCreateModal = () => createRef.value?.onDisplay();
 
 const style = computed(() => ({
   height: ACTION_BAR_HEIGHT + "px"
@@ -39,7 +40,7 @@ const style = computed(() => ({
       <Button
         type="primary"
         v-bind="cursor!.helper.point"
-        @click="() => createRef!.onDisplay()"
+        @click="onDisplayCreateModal"
         >创建</Button
       >
     </Tooltip>

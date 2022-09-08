@@ -16,7 +16,7 @@ const formData = reactive({
 });
 
 function handleConfirm() {
-  formRef.value!.validate((hasError: boolean) => {
+  formRef.value!.validate(hasError => {
     if (hasError) return;
     visible.value = true;
   });
