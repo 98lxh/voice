@@ -3,11 +3,12 @@ import { computed, ref } from "vue";
 import { useAppStore } from "@/store/modules/app";
 import { ACTION_BAR_HEIGHT } from "@/config/layout";
 import { Button, Input, Tooltip } from "useless-ui";
+import { type CreateModaInstance } from "./types";
 import Icon from "@/components/icon";
 import Create from "./create.vue";
 
 const { cursor } = useAppStore();
-const createRef = ref<InstanceType<typeof Create> | null>(null);
+const createRef = ref<CreateModaInstance | null>(null);
 
 const style = computed(() => ({
   height: ACTION_BAR_HEIGHT + "px"

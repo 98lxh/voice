@@ -2,12 +2,13 @@
 import { reactive, ref } from "vue";
 import { useAppStore } from "@/store/modules/app";
 import { Modal, Form, Input, Button } from "useless-ui";
-import Icon from "@/components/icon";
+import { type FormInstance } from "@/types/instance";
 import { CREATE_RULES } from "./helper";
+import Icon from "@/components/icon";
 
 const visible = ref(false);
 const { cursor } = useAppStore();
-const formRef = ref<InstanceType<typeof Form> | null>(null);
+const formRef = ref<FormInstance | null>(null);
 
 const formData = reactive({
   name: "",
@@ -15,9 +16,8 @@ const formData = reactive({
 });
 
 function handleConfirm() {
-  (formRef.value as any)?.validate((hasError: boolean) => {
+  formRef.value!.validate((hasError: boolean) => {
     if (hasError) return;
-
     visible.value = true;
   });
 }
