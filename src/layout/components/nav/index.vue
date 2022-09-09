@@ -4,6 +4,7 @@ import { NAV_HEIGHT } from "@/config/layout";
 import { NAV_LINKS } from "@/config/static";
 import { useAppStore } from "@/store/modules/app";
 import { useRouter, useRoute } from "vue-router";
+import { Button, Tooltip, Popover } from "useless-ui";
 import Icon from "@/components/icon";
 
 const route = useRoute();
@@ -24,7 +25,6 @@ const logo = ref<HTMLElement | null>(null);
     items-center
     justify-between
     text-white
-    px-5
   >
     <div
       cursor-icon
@@ -38,16 +38,7 @@ const logo = ref<HTMLElement | null>(null);
       <Icon name="logo" size="25px" />
     </div>
 
-    <div
-      class="translate"
-      text-sm
-      absolute
-      left="50%"
-      top="50%"
-      flex
-      gap="5"
-      select-none
-    >
+    <div class="translate" text-sm absolute left="50%" top="50%" flex gap="5" select-none>
       <div
         v-for="link in NAV_LINKS"
         :key="link.path"
@@ -60,7 +51,36 @@ const logo = ref<HTMLElement | null>(null);
       </div>
     </div>
 
-    <div px-3 select-none>Avatar</div>
+    <div px-3 select-none v-bind="helper.point">
+      <!-- 未登录  -->
+      <Tooltip placement="left" content="请先完成登录/注册">
+        <Button type="outline">登录/注册</Button>
+      </Tooltip>
+
+      <!-- 已登录  -->
+
+      <!-- <Popover placement="br">
+        <template #content>
+          <div w="90px" select="none">
+            <div hover:bg="#313131" hover:text="#1a5cff" px="3" py="1.5" duration="300ms">
+              个人中心
+            </div>
+            <div hover:bg="#313131" hover:text="#1a5cff" px="3" py="1.5" duration="300ms">
+              退出登录
+            </div>
+          </div>
+        </template>
+
+        <div w="30px" h="30px">
+          <img
+            w-full
+            h-full
+            rounded="full"
+            src="https://avatars.githubusercontent.com/u/75563939?v=4"
+          />
+        </div>
+      </Popover> -->
+    </div>
   </nav>
 </template>
 

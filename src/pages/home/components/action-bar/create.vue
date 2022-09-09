@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { reactive, ref } from "vue";
 import { useAppStore } from "@/store/modules/app";
-import { Modal, Form, Input, Button } from "useless-ui";
+import { Modal, Form, Input, Button, FormItem } from "useless-ui";
 import { type FormInstance } from "@/types/instance";
 import { CREATE_RULES } from "./helper";
 import Icon from "@/components/icon";
@@ -50,20 +50,16 @@ defineExpose({
       :rules="CREATE_RULES"
       v-bind="cursor!.helper.point"
     >
-      <UseFormItem label="房间名 :" prop="name">
-        <Input
-          ml="5px"
-          placeholder="请输入房间名"
-          v-model:value="formData.name"
-        />
-      </UseFormItem>
-      <UseFormItem label="房间描述 :" prop="description">
+      <FormItem label="房间名 :" prop="name">
+        <Input ml="5px" placeholder="请输入房间名" v-model:value="formData.name" />
+      </FormItem>
+      <FormItem label="房间描述 :" prop="description">
         <Input
           ml="5px"
           placeholder="请输入房间描述"
           v-model:value="formData.description"
         />
-      </UseFormItem>
+      </FormItem>
     </Form>
 
     <template #footer>

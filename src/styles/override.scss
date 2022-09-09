@@ -118,3 +118,45 @@
   box-shadow: 0 3px 6px -4px #0000001f, 0 6px 16px #00000014, 0 9px 28px 8px #0000000d !important;
   font-size: 12px;
 }
+
+
+.u-popover-node{
+  background-color: #404040 !important;
+  box-shadow: 0 3px 6px -4px #0000001f, 0 6px 16px #00000014, 0 9px 28px 8px #0000000d !important;
+  color:#f8f5f8 !important;
+  border: none !important;
+  z-index: 900 !important;
+
+  .u-select-option{
+    min-width: auto !important;
+
+    &.is-active{
+      background-color: rgba(17,18,20,0.2);
+      color: #1a5cff !important;
+    }
+
+    &:hover{
+      background-color: #313131 !important;
+    }
+  }
+}
+
+.u-select{
+  span{
+    width: 100% !important;
+
+    .u-input{
+      width: 100% !important;
+
+      span{
+        width: auto !important;
+      }
+    }
+  }
+}
+
+
+.popover-node__arrow{
+  background-color: #404040 !important;
+  border: 1px solid #404040 !important;
+}

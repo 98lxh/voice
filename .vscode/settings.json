@@ -4,5 +4,6 @@
   },
   "i18n-ally.localesPaths": ["locales"],
   "i18n-ally.sourceLanguage": "en",
-  "i18n-ally.keystyle": "flat"
+  "i18n-ally.keystyle": "flat",
+  "vue3snippets.enable-compile-vue-file-on-did-save-code": true
 }

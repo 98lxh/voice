@@ -4,7 +4,6 @@ import { resolve } from 'pathe';
 import vue from '@vitejs/plugin-vue';
 import VueI18n from '@intlify/vite-plugin-vue-i18n';
 import Components from 'unplugin-vue-components/vite'
-import ViteFonts from 'vite-plugin-fonts';
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
 import path from 'path';
 
@@ -29,16 +28,9 @@ export default defineConfig({
       extensions: ['vue'],
       dts: 'src/components.d.ts',
     }),
-    // https://github.com/stafyniaksacha/vite-plugin-fonts#readme
-    ViteFonts({
-      google: {
-        families: ['Open Sans', 'Montserrat', 'Fira Sans'],
-      },
-    }),
 
     Unocss({ /* options */ }),
 
-    // https://github.com/intlify/vite-plugin-vue-i18n
     VueI18n({
       include: [resolve(__dirname, './locales/**')],
     }),

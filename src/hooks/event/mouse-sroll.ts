@@ -14,7 +14,6 @@ const defaultOptions: MouceScrollConfig = {
  */
 export function useMouseSroll({ frame } = defaultOptions) {
   const target = ref<HTMLElement | null>(null);
-  // const { viewport } = useAppStore();
   let animationTimes = 0;
   let step = 0;
   let raf = 0;

@@ -12,7 +12,7 @@ const createRef = ref<InstanceType<typeof Create> | null>(null);
 const onDisplayCreateModal = () => createRef.value?.onDisplay();
 
 const style = computed(() => ({
-  height: ACTION_BAR_HEIGHT + "px"
+  height: ACTION_BAR_HEIGHT + "px",
 }));
 </script>
 
@@ -37,10 +37,7 @@ const style = computed(() => ({
     </Tooltip>
 
     <Tooltip placement="left" content="创建房间">
-      <Button
-        type="primary"
-        v-bind="cursor!.helper.point"
-        @click="onDisplayCreateModal"
+      <Button type="primary" v-bind="cursor!.helper.point" @click="onDisplayCreateModal"
         >创建</Button
       >
     </Tooltip>
