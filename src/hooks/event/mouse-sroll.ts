@@ -45,8 +45,11 @@ export function useMouseSroll({ frame } = defaultOptions) {
   function handler(event: any) {
     const { wheelDelta } = event;
     const mode = wheelDelta > 0 ? "up" : "down";
+
     step = Math.abs(wheelDelta / frame);
+
     cancelPreviousRaf();
+
     scrollTo(target.value!, mode);
   }
 

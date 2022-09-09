@@ -1,8 +1,12 @@
-import { defineConfig } from "vite";
+import { defineConfig } from 'vite';
+import Unocss from 'unocss/vite'
+import { resolve } from 'pathe';
+import vue from '@vitejs/plugin-vue';
+import VueI18n from '@intlify/vite-plugin-vue-i18n';
+import Components from 'unplugin-vue-components/vite'
+import ViteFonts from 'vite-plugin-fonts';
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
-import vue from "@vitejs/plugin-vue";
-import Unocss from "unocss/vite";
-import path from "path";
+import path from 'path';
 
 const svg = createSvgIconsPlugin({
   iconDirs: [path.resolve(process.cwd(), "src/assets/icons")],
@@ -10,13 +14,44 @@ const svg = createSvgIconsPlugin({
 });
 
 export default defineConfig({
+  server: {
+    port: 4000,
+  },
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src")
-    }
+      '@': resolve(__dirname, './src'),
+    },
   },
-  server: {
-    host: true
+  plugins: [
+    vue(),
+    svg,
+    Components({
+      extensions: ['vue'],
+      dts: 'src/components.d.ts',
+    }),
+    // https://github.com/stafyniaksacha/vite-plugin-fonts#readme
+    ViteFonts({
+      google: {
+        families: ['Open Sans', 'Montserrat', 'Fira Sans'],
+      },
+    }),
+
+    Unocss({ /* options */ }),
+
+    // https://github.com/intlify/vite-plugin-vue-i18n
+    VueI18n({
+      include: [resolve(__dirname, './locales/**')],
+    }),
+  ],
+
+  optimizeDeps: {
+    include: [
+      'vue',
+      'vue-router',
+      '@vueuse/core',
+    ],
+    exclude: [
+      'vue-demi',
+    ],
   },
-  plugins: [svg, vue(), Unocss()]
 });

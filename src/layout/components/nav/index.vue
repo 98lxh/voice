@@ -24,6 +24,7 @@ const logo = ref<HTMLElement | null>(null);
     items-center
     justify-between
     text-white
+    px-5
   >
     <div
       cursor-icon
