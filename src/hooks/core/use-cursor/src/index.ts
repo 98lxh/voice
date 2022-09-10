@@ -23,6 +23,19 @@ export function useCursor(config: Config = defaultConfig) {
     });
   }
 
+  function remove(){
+    const { point } = cursorElements.value!;
+    const firstEl = point.children[0];
+    firstEl && cursorElements.value?.point.removeChild(firstEl)
+  }
+
+  function reset(){
+    const { circle } = cursorElements.value!;
+    circle.removeAttribute('style')
+    setCursor('normal')
+    remove();
+  }
+
   function initialization(el: HTMLElement) {
     cursorElements.value = createCursorElement(el, config as Config);
     bindEvent(cursorElements.value);
@@ -34,6 +47,8 @@ export function useCursor(config: Config = defaultConfig) {
 
   return {
     helper: generatorHelper(setCursor, cursorElements),
+    remove,
+    reset,
     setCursor
   };
 }

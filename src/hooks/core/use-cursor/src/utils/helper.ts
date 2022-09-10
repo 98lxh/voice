@@ -31,7 +31,7 @@ export function generatorHelper(
     onMouseleave: () => setCursor("normal")
   }
 
-  const element = (container: HTMLElement | null) => {
+  const element = (container: HTMLElement | null, { color, transparent }: { color?: string, transparent?: boolean } = {}) => {
     const enterHandler = elementHelperHandler.bind(null, {
       container,
       cursorElements,
@@ -51,7 +51,8 @@ export function generatorHelper(
           setCursor("element");
           const { point, circle } = cursorElements.value!;
           const { width } = move.getBoundingClientRect();
-          if (icon) (move.firstChild as any).style.fill = "#000";
+          circle.style.backgroundColor = transparent ? 'transparent' : '#fff'
+          if (icon) (move.firstChild as any).style.fill = color ? color : "#000";
 
           point.appendChild(move);
 
@@ -71,7 +72,7 @@ export function generatorHelper(
           circle.style.top = "-10000px";
           container!.appendChild(move);
 
-          if (icon) (move.firstChild as any).style.fill = "#fff";
+          if (icon) (move.firstChild as any).style.fill = color ? color : "#fff";
 
           nextTick(() => setCursor("normal"));
         });

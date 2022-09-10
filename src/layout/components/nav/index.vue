@@ -23,6 +23,7 @@ const logo = ref<HTMLElement | null>(null);
     z-100
     fixed
     w="100vw"
+    top="0"
     flex
     items-center
     justify-between

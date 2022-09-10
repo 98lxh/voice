@@ -15,5 +15,5 @@ export const MOUSE_OPTIONS = [
 
 
 export const DEFAULT_SETTINGS = {
-  speed:'default'
+  speed:'50'
 }

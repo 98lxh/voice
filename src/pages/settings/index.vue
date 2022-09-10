@@ -2,21 +2,13 @@
 import { ref } from "vue";
 import { useContentSize, useCursor } from "@/hooks";
 import { Form, FormItem, Input, Button, Select, Modal } from "useless-ui";
-import { MOUSE_OPTIONS, DEFAULT_SETTINGS } from "./config";
-import { tryOnMounted } from "@vueuse/core";
+import { DEFAULT_SETTINGS } from "./config";
 
 const style = useContentSize();
 const { helper } = useCursor();
 
 const visible = ref(false);
-const optionWidth = ref("");
 const formData = ref({ ...DEFAULT_SETTINGS });
-const selectRef = ref<InstanceType<typeof Select> | null>(null);
-
-tryOnMounted(() => {
-  const el = selectRef.value.$el as HTMLElement;
-  optionWidth.value = String(el.clientWidth);
-});
 </script>
 
 <template>
@@ -28,21 +20,15 @@ tryOnMounted(() => {
       translate="-50%"
       w="450px"
       max-w="90vw"
-      :label-width="80"
+      :label-width="100"
       :model="formData"
       v-bind="helper.point"
     >
-      <FormItem label="横向滚动:" prop="speed">
-        <Select
-          ref="selectRef"
-          v-model:value="formData.speed"
-          :option-width="optionWidth"
-          placeholder="选择横向滚动速度"
-          :options="MOUSE_OPTIONS"
-        />
+      <FormItem label="横向滚动速度:" prop="speed">
+        <Input :error="false" v-model:value="formData.speed" v-bind="helper.input" />
       </FormItem>
 
-      <FormItem label="设置1:" prop="speed">
+      <!-- <FormItem label="设置1:" prop="speed">
         <Input :error="false" />
       </FormItem>
 
@@ -52,7 +38,7 @@ tryOnMounted(() => {
 
       <FormItem label="设置3:" prop="speed">
         <Input :error="false" />
-      </FormItem>
+      </FormItem> -->
 
       <FormItem>
         <div flex w-full justify-end gap-5>

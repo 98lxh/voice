@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed, ref, watch } from "vue";
 import { Modal } from "useless-ui";
 import { UserModalType } from "@/types/user";
 import { useAppStore } from "@/store/modules/app";
@@ -15,6 +15,11 @@ const title = computed(() => (type.value === "login" ? "登录" : "注册"));
 defineExpose({
   onDisplay: () => (visible.value = true),
 });
+
+watch(
+  () => visible.value,
+  () => (type.value = "login")
+);
 </script>
 
 <template>

@@ -55,9 +55,8 @@ $text:#000;
   }
 
   &.mode-element {
-    background-color: $color;
-
-
+    border: none;
+    
     use{
       fill:$text !important;
     }

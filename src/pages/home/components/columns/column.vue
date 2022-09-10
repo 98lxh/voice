@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useAppStore } from "@/store/modules/app";
 import { computed } from "vue";
+import { useRouter } from "vue-router";
 
 const props = defineProps<{
   id: number;
@@ -8,6 +9,7 @@ const props = defineProps<{
 }>();
 
 const { cursor } = useAppStore();
+const { push } = useRouter();
 const { setCursor } = cursor!;
 
 const style = computed(() => {
@@ -15,7 +17,7 @@ const style = computed(() => {
 
   return {
     width: size.width + "px",
-    height: size.height + "px"
+    height: size.height + "px",
   };
 });
 </script>
@@ -32,6 +34,7 @@ const style = computed(() => {
         justify-center
         border-l-none
         border-r-none
+        @click="() => push(`/room/${id}`)"
       >
         <div
           h="90%"

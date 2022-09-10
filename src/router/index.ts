@@ -19,8 +19,16 @@ const routes: Array<RouteRecordRaw> = [
       {
         path: "settings",
         component: () => import("@/pages/settings/index.vue")
-      }
+      },
     ]
+  },
+  {
+    path: '/listen',
+    component: () => import('@/pages/listen/index.vue')
+  },
+  {
+    path: '/room/:id',
+    component: () => import('@/pages/room/index.vue')
   }
 ];
 
