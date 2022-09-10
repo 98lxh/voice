@@ -43,21 +43,21 @@ defineExpose({
       </div>
     </template>
 
-    <Form
-      ref="formRef"
-      :model="formData"
-      :label-width="80"
-      :rules="CREATE_RULES"
-      v-bind="cursor!.helper.point"
-    >
-      <FormItem label="房间名 :" prop="name">
-        <Input ml="5px" placeholder="请输入房间名" v-model:value="formData.name" />
+    <Form ref="formRef" :model="formData" :label-width="80" :rules="CREATE_RULES">
+      <FormItem label="房间标题 :" prop="name">
+        <Input
+          ml="5px"
+          placeholder="请输入房间标题"
+          v-model:value="formData.name"
+          v-bind="cursor?.helper.input"
+        />
       </FormItem>
       <FormItem label="房间描述 :" prop="description">
         <Input
           ml="5px"
           placeholder="请输入房间描述"
           v-model:value="formData.description"
+          v-bind="cursor?.helper.input"
         />
       </FormItem>
     </Form>

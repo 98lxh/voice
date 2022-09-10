@@ -5,7 +5,7 @@ export type CursorElements = {
   point: HTMLElement;
 };
 
-export type CursorMode = "point" | "normal" | "arrow" | "element";
+export type CursorMode = "point" | "normal" | "arrow" | "element" | 'input';
 
 export type SetModeFn = (mode: CursorMode) => void;
 

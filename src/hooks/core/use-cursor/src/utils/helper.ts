@@ -25,6 +25,12 @@ export function generatorHelper(
     onMouseleave: () => setCursor("normal")
   };
 
+
+  const input = {
+    onMouseenter: () => setCursor("input"),
+    onMouseleave: () => setCursor("normal")
+  }
+
   const element = (container: HTMLElement | null) => {
     const enterHandler = elementHelperHandler.bind(null, {
       container,
@@ -76,6 +82,7 @@ export function generatorHelper(
   return {
     point,
     arrow,
+    input,
     element
   };
 }

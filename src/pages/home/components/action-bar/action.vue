@@ -29,7 +29,7 @@ const style = computed(() => ({
     :style="style"
   >
     <Tooltip placement="right" content="搜索房间">
-      <Input placeholder="请输入房间号" v-bind="cursor!.helper.point">
+      <Input placeholder="请输入房间号" v-bind="cursor!.helper.input">
         <template #prefix>
           <Icon name="search" />
         </template>

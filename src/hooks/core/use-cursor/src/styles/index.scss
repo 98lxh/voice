@@ -37,6 +37,10 @@ $text:#000;
     display: none;
   }
 
+  &.mode-input {
+    display: none;
+  }
+
   //arrow
 
   &.mode-arrow {
@@ -113,6 +117,16 @@ $text:#000;
 
     &.cursor-show {
       opacity: 1;
+    }
+  }
+
+  &.mode-input {
+    height: 15px;
+    width: 1px;
+
+
+    &.cursor-click{
+      height: 20px;
     }
   }
 
