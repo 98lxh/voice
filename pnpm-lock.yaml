@@ -17,7 +17,7 @@ specifiers:
   typescript: ^4.7.4
   unocss: ^0.45.6
   unplugin-vue-components: ^0.22.4
-  useless-ui: ^0.2.4
+  useless-ui: ^0.2.5
   vite: ^3.0.7
   vite-plugin-fonts: ^0.6.0
   vite-plugin-purge-icons: ^0.9.0
@@ -30,7 +30,7 @@ specifiers:
 
 dependencies:
   pinia: 2.0.22_typescript@4.7.4+vue@3.2.37
-  useless-ui: 0.2.4
+  useless-ui: 0.2.5
   vite-plugin-svg-icons: 2.0.1_vite@3.0.7
   vue: 3.2.37
   vue-i18n: 9.2.2_vue@3.2.37
@@ -2994,8 +2994,8 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: false
 
-  /useless-ui/0.2.4:
-    resolution: {integrity: sha512-JIbbjucxRNJUUpP1cujm8UMqIRldN1TP9R22YVPBoFkYAiJasrMwxewPjd6zNLfSxPM3EgNgY03fciEJ+GMIyg==}
+  /useless-ui/0.2.5:
+    resolution: {integrity: sha512-Q31X+9S4vFKWzURdfmc1maHeRH3ElMDgxJuWuPgUxIQ6HEeFzB8qly/VhlUt5CLoUvaHmXkyT76oyGP8+aKGIQ==}
     dependencies:
       '@vue/babel-preset-jsx': 1.4.0_vue@3.2.37
       acorn-jsx: 5.3.2

@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "pinia": "^2.0.22",
-    "useless-ui": "^0.2.4",
+    "useless-ui": "^0.2.5",
     "vite-plugin-svg-icons": "^2.0.1",
     "vue": "^3.2.37",
     "vue-i18n": "^9.2.2",

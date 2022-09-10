@@ -23,7 +23,7 @@ watch(
 </script>
 
 <template>
-  <Modal v-model:visible="visible">
+  <Modal v-model:visible="visible" :mask-closable="false">
     <template #title>{{ title }}</template>
 
     <div v-bind="cursor?.helper.point">

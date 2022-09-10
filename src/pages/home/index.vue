@@ -9,13 +9,13 @@ import Columns from "./components/columns";
 const { cursor, viewport } = useAppStore();
 const { size } = useColumnSize();
 const { target } = useMouseSroll({
-  frame: 10
+  frame: 10,
 });
 
 const { helper } = cursor!;
 
 const styles = computed(() => ({
-  ...(viewport ? { height: viewport.height + "px" } : {})
+  ...(viewport ? { height: viewport.height + "px" } : {}),
 }));
 </script>
 
@@ -33,8 +33,6 @@ const styles = computed(() => ({
   display: flex;
   width: 100%;
   overflow-y: scroll;
-  position: fixed;
-  top: 0px;
 
   &::-webkit-scrollbar {
     display: none;

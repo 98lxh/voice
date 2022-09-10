@@ -1,7 +1,7 @@
 import { ref } from "vue";
 import { tryOnMounted, tryOnUnmounted } from "@vueuse/core";
 
-interface MouceScrollConfig {
+export interface MouceScrollConfig {
   frame: number;
 }
 
@@ -23,7 +23,7 @@ export function useMouseSroll({ frame } = defaultOptions) {
     raf && window.cancelAnimationFrame(raf);
   };
 
-  function scrollTo(target: HTMLElement, mode: "up" | "down") {
+  function onScrollTo(target: HTMLElement, mode: "up" | "down") {
     if (animationTimes === frame) {
       animationTimes = 0;
       return cancelPreviousRaf();
@@ -34,11 +34,15 @@ export function useMouseSroll({ frame } = defaultOptions) {
     raf = requestAnimationFrame(() => {
       animationTimes++;
       const left = mode === "up" ? current - step : current + step;
-      scrollTo(target, mode);
+      onScrollTo(target, mode);
       target.scrollTo({
         left
       });
     });
+  }
+
+  function scrollTo(left:number){
+    target.value!.scrollTo({left})
   }
 
   function handler(event: any) {
@@ -49,7 +53,7 @@ export function useMouseSroll({ frame } = defaultOptions) {
 
     cancelPreviousRaf();
 
-    scrollTo(target.value!, mode);
+    onScrollTo(target.value!, mode);
   }
 
   tryOnMounted(() => document.addEventListener("mousewheel", handler));
@@ -57,6 +61,7 @@ export function useMouseSroll({ frame } = defaultOptions) {
   tryOnUnmounted(() => document.removeEventListener("mousewheel", handler));
 
   return {
-    target
+    target,
+    scrollTo
   };
 }
