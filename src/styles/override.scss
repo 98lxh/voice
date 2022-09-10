@@ -3,6 +3,10 @@
   color: #fff;
 }
 
+.u-button--text{
+  color: #1a5cff;
+}
+
 .u-button{
   border-radius: 0px;
 }
@@ -159,4 +163,72 @@
 .popover-node__arrow{
   background-color: #404040 !important;
   border: 1px solid #404040 !important;
+}
+
+
+.u-date-picker{
+  .u-input{
+    width: 100%;
+  }
+}
+
+.u-picker-wrapper{
+  z-index: 900;
+
+  .u-date-picker__panel{
+    background-color:#404040;
+    border-radius:0px;
+    border: none;
+    color:#f8f5f8 ;
+
+    .panel__nav{
+      border: 1px solid #303030;
+      height: 30px;
+    }
+
+    .panel__footer{
+      border: 1px solid #303030;
+    }
+  }
+
+  .cell {
+    border-radius: none !important;
+
+    &:hover{
+      background-color: rgba(255,255,255,.08) !important;
+    }
+
+    &.is-select{
+      background-color:transparent !important;
+      border: 1px solid #1a5cff  !important;
+    }
+
+    &.not-current-month{
+      color: #ffffff4d !important;
+    }
+  }
+
+  .year-cell,.month-cell{
+    &:hover{
+      background-color: rgba(255,255,255,.08) !important;
+    }
+  }
+
+  .is-select-year{
+    background-color:transparent !important;
+    border: 1px solid #1a5cff  !important;
+  }
+
+  .is-select-month{
+    background-color:transparent !important;
+    border: 1px solid #1a5cff  !important;
+  }
+}
+
+.u-date-picker__panel .panel__nav i:hover{
+  color: #1a5cff ;
+}
+
+.u-date-picker__panel .panel__nav .nav-month:hover, .u-date-picker__panel .panel__nav .nav-year:hover{
+  background-color: rgba(255,255,255,.08) !important;
 }

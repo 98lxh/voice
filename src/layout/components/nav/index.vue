@@ -7,6 +7,8 @@ import { useRouter, useRoute } from "vue-router";
 import { Button, Tooltip, Popover } from "useless-ui";
 import Icon from "@/components/icon";
 
+const emit = defineEmits(["login-btn-click"]);
+
 const route = useRoute();
 const { cursor } = useAppStore();
 const { push } = useRouter();
@@ -54,7 +56,7 @@ const logo = ref<HTMLElement | null>(null);
     <div px-3 select-none v-bind="helper.point">
       <!-- 未登录  -->
       <Tooltip placement="left" content="请先完成登录/注册">
-        <Button type="outline">登录/注册</Button>
+        <Button type="outline" @click="() => emit('login-btn-click')">登录/注册</Button>
       </Tooltip>
 
       <!-- 已登录  -->
